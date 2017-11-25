@@ -9,4 +9,6 @@ ENV JOURNALING=yes
 ADD run.sh /run.sh
 ADD set_mongodb_password.sh /set_mongodb_password.sh
 
+RUN chmod + x /run.sh
+
 CMD ["/run.sh"]
