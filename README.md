@@ -11,5 +11,4 @@ MongoDB using docker.
     sh start.sh
 4. Create mongodb user:
     
-    docker exec -it docker-mongodb mongo admin
-    db.createUser({ user: 'admin', pwd: 'password', roles: [ { role: "dbOwner", db: "admin" } ] });
+    docker exec -it docker-mongodb mongo admindb.createUser({ user: 'admin', pwd: 'password', roles: [ { role: "dbOwner", db: "admin" } ] });
