@@ -1,1 +1,7 @@
-docker run -d -p 27017:27017 --name docker-mongodb -v /data/db:/data/db parikmaan/docker-mongodb --auth
+docker run -it \
+-e MONGODB_ADMIN_USER=admin \
+-e MONGODB_ADMIN_PASS=adminpass \
+-e MONGODB_APPLICATION_DATABASE=mytestdatabase \
+-e MONGODB_APPLICATION_USER=testuser \
+-e MONGODB_APPLICATION_PASS=testpass \
+-p 27017:27017 parikmaan/docker-mongodb:latest
