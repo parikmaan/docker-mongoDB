@@ -1,4 +1,5 @@
-docker run -it \
+docker run --name docker-mongodb -it \
+-v 
 -e MONGODB_ADMIN_USER=admin \
 -e MONGODB_ADMIN_PASS=adminpass \
 -e MONGODB_APPLICATION_DATABASE=mytestdatabase \
