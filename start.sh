@@ -1,1 +1,1 @@
-docker run -d --name docker-mongoDB --auth --mount source=/home/dev/localDesk/mongoDB/data/db,target=/data/db mongo
+docker run -d --name docker-mongodb --auth --mount source=/home/dev/localDesk/mongoDB/data/db,target=/data/db docker-mongodb
