@@ -1,1 +1,1 @@
-docker build -t docker-mongoDB .
+docker build -t docker-mongodb .
