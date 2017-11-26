@@ -23,4 +23,4 @@ COPY conf/mongodb.conf /data/db/mongodb/conf/mongodb.conf
 USER mongodb
 
 # Start MongoDB
-ENTRYPOINT ["/usr/bin/mongod", "--config /data/db/mongodb/conf/mongodb.conf"]
+#ENTRYPOINT ["/usr/bin/mongod", "--config /data/db/mongodb/conf/mongodb.conf"]
