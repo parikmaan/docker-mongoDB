@@ -11,7 +11,7 @@ RUN echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main" | 
 RUN apt-get update
 RUN apt-get install -y mongodb-org
 #RUN mkdir -p /data/db
-EXPOSE 66646
+EXPOSE 27017
 COPY conf/mongodb.conf /data/db/mongodb/conf/mongodb.conf
 
 # Start MongoDB
