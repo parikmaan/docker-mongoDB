@@ -1,9 +1,5 @@
 FROM debian:8.9
-
 MAINTAINER <Parik Maan>
-
-# User root user
-USER root
 
 # Install MongoDB
 RUN apt-get update && \
