@@ -17,5 +17,4 @@ EXPOSE 27017
 COPY conf/mongodb.conf /data/db/mongodb/conf/mongodb.conf
 
 # Start MongoDB
-ENTRYPOINT ["usr/bin/mongod"]
-CMD ["--config /data/db/mongodb/conf/mongodb.conf"]
+RUN usr/bin/mongod --config /data/db/mongodb/conf/mongodb.conf
