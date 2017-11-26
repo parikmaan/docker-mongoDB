@@ -18,7 +18,8 @@ RUN apt-get install -y mongodb-org
 RUN mkdir -p /data/db
 EXPOSE 27017
 COPY conf/mongodb.conf /data/db/mongodb/conf/mongodb.conf
-RUN chown -R mongodb:mongodb /data/db 
+RUN chown -R mongodb:mongodb /data/db
+RUN chown -R mongodb:mongodb /usr/bin/mongo*
 
 # Use mongodb user
 USER mongodb
