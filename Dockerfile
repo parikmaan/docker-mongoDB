@@ -24,4 +24,4 @@ RUN chown -R mongodb:mongodb /data/db
 USER mongodb
 
 # Start MongoDB
-RUN usr/bin/mongod --config /data/db/mongodb/conf/mongodb.conf
+RUN /usr/bin/mongod --config /data/db/mongodb/conf/mongodb.conf
