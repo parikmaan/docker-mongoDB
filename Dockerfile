@@ -24,4 +24,4 @@ COPY scripts/entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
 
 # Start MongoDB
-CMD entrypoint.sh
+CMD ./entrypoint.sh
