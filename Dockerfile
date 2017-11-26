@@ -2,6 +2,8 @@ FROM debian:8.9
 
 MAINTAINER <Parik Maan>
 
+USER root
+
 # Get APT updates
 RUN apt-get update
 
@@ -17,5 +19,8 @@ EXPOSE 27017
 COPY conf/mongodb.conf /data/db/mongodb/conf/mongodb.conf
 
 # Start MongoDB
+
 RUN chown -R mongodb:mongodb /data/db 
+
+USER mongodb
 #RUN usr/bin/mongod --config /data/db/mongodb/conf/mongodb.conf
