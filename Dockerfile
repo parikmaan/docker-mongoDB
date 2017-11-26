@@ -20,6 +20,7 @@ RUN mkdir -p ${INSTALL_PATH}
 WORKDIR ${INSTALL_PATH}
 RUN chown -R mongodb:mongodb /mongodb
 COPY conf/mongodb.conf conf/mongodb.conf
+COPY scripts/entrypoint.sh entrypoint.sh
 
 # Start MongoDB
-CMD /usr/bin/mongod --config "/mongodb/conf/mongodb.conf"
+CMD ["entrypoint.sh"]
