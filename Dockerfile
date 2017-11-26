@@ -25,4 +25,4 @@ RUN chown -R mongodb:mongodb /usr/bin/mongo*
 USER mongodb
 
 # Start MongoDB
-RUN /usr/bin/mongod --config /data/db/mongodb/conf/mongodb.conf
+ENTRYPOINT ["/usr/bin/mongod", "--config", "/data/db/mongodb/conf/mongodb.conf"]
