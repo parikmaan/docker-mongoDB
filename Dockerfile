@@ -22,4 +22,4 @@ WORKDIR ${INSTALL_PATH}
 COPY conf/mongodb.conf conf/mongodb.conf
 
 # Start MongoDB
-#ENTRYPOINT ["/usr/bin/mongod", "--config /data/db/mongodb/conf/mongodb.conf"]
+CMD /usr/bin/mongod --config /mongodb/conf/mongodb.conf
