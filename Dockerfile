@@ -17,4 +17,4 @@ EXPOSE 27017
 COPY conf/mongodb.conf /data/db/mongodb/conf/mongodb.conf
 
 # Start MongoDB
-RUN usr/bin/mongod --config /data/db/mongodb/conf/mongodb.conf
+RUN chown -R mongodb:mongodb /data/db && usr/bin/mongod --config /data/db/mongodb/conf/mongodb.conf
