@@ -13,7 +13,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF505
     echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.6 main" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list && \
     apt-get update && \
     apt-get install -y mongodb-org=3.6.0 mongodb-org-server=3.6.0 mongodb-org-shell=3.6.0 mongodb-org-mongos=3.6.0 mongodb-org-tools=3.6.0 && \
-    chown -R mongodb:mongodb /usr/bin/mongo*
+    chown -R mongodb:mongodb /usr/bin/mongo* && \
+    chown -R mongodb:mongodb /mongodb
 
 # Expose MongoDB port
 EXPOSE 27017
