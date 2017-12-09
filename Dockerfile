@@ -18,4 +18,4 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF505
 # Expose MongoDB port
 EXPOSE 27017
 
-CMD ["/usr/bin/mongod", "--config" "/etc/mongodb.conf"]
+CMD ["/usr/bin/mongod", "--config" "conf/mongodb.conf"]
