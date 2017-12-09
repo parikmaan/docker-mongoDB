@@ -1,27 +1,21 @@
-FROM debian:8.9
+FROM debian:jessie-slim
 MAINTAINER <Parik Maan>
 
+# Create mongo working directory
+RUN mkdir -p /mongodb
+WORKDIR /mongodb
+
+# Copy config files
+COPY conf conf
+
 # Install MongoDB
-RUN apt-get update && \
-    groupadd -r mongodb && \
-    useradd -r -g mongodb mongodb && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6 && \
-    echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main" | tee /etc/apt/sources.list.d/mongodb-org-3.4.list && \
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5 && \
+    echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.6 main" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list && \
     apt-get update && \
-    apt-get install -y mongodb-org && \
+    apt-get install -y mongodb-org=3.6.0 mongodb-org-server=3.6.0 mongodb-org-shell=3.6.0 mongodb-org-mongos=3.6.0 mongodb-org-tools=3.6.0 && \
     chown -R mongodb:mongodb /usr/bin/mongo*
 
 # Expose MongoDB port
 EXPOSE 27017
 
-# Setup work directory
-ENV INSTALL_PATH /mongodb
-RUN mkdir -p ${INSTALL_PATH}
-WORKDIR ${INSTALL_PATH}
-RUN chown -R mongodb:mongodb /mongodb
-COPY conf/mongodb.conf conf/mongodb.conf
-COPY scripts/entrypoint.sh entrypoint.sh
-RUN chmod +x /mongodb/entrypoint.sh
-
-# Start MongoDB
-CMD /mongodb/entrypoint.sh
+CMD ["/usr/local/mongodb/bin/mongod", "--config" "/etc/mongodb.conf"]
