@@ -10,7 +10,8 @@ RUN mkdir -p /mongodb/data/logs && \
 WORKDIR /mongodb
 
 # Copy config files
-COPY conf conf
+COPY conf conf && \
+    scripts scripts
 
 # Install MongoDB
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5 && \
@@ -23,4 +24,4 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF505
 # Expose MongoDB port
 EXPOSE 27017
 
-CMD ["/usr/bin/mongod", "--config" "/mongodb/conf/mongodb.conf"]
+ENTRYPOINT ["scripts/entrypoint.sh"]
