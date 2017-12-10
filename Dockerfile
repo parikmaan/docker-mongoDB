@@ -5,7 +5,8 @@ MAINTAINER <Parik Maan>
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 # Create mongo working directory
-RUN mkdir -p /mongodb
+RUN mkdir -p /mongodb/data/logs && \
+    mkdir -p /mongodb/data/db
 WORKDIR /mongodb
 
 # Copy config files
@@ -22,4 +23,4 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF505
 # Expose MongoDB port
 EXPOSE 27017
 
-CMD ["/usr/bin/mongod", "--config" "conf/mongodb.conf"]
+CMD ["/usr/bin/mongod", "--config" "/mongodb/conf/mongodb.conf"]
