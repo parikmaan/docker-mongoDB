@@ -25,3 +25,5 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF505
 EXPOSE 27017
 
 ENTRYPOINT ["scripts/entrypoint.sh"]
+
+CMD ["/bin/bash"]
