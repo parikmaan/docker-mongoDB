@@ -9,9 +9,9 @@ RUN mkdir -p /mongodb/data/logs && \
     mkdir -p /mongodb/data/db
 WORKDIR /mongodb
 
-# Copy config files
-COPY conf conf && \
-    scripts scripts
+# Copy files
+COPY conf conf
+COPY scripts scripts
 
 # Install MongoDB
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5 && \
