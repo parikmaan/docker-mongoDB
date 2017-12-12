@@ -31,5 +31,4 @@ EXPOSE 27017
 
 #ENTRYPOINT ["scripts/entrypoint.sh"]
 
-USER mongodb
 CMD ["mongod", "--config /mongodb/conf/mongodb.conf"]
