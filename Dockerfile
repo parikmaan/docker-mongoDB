@@ -25,6 +25,7 @@ RUN set -x && \
 
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb && echo "mongodb:mongodb" | chpasswd && adduser mongodb sudo
 
+VOLUME /mongodb
 
 # Copy files
 COPY conf conf
