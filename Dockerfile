@@ -12,7 +12,7 @@ RUN set -x && \
     apt-get install -y --no-install-recommends mongodb-org=3.6.0
 
 # Create mongo working directory
-RUN mkdir -p /mongodb
+RUN mkdir -p /mongodb/db /mongodb/logs
 VOLUME /mongodb
 WORKDIR /mongodb
 
