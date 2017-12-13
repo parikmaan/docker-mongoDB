@@ -36,7 +36,7 @@ EOF
 
 sleep 5
 
-touch /mongodb/auth_initialized
+touch /mongodb/auth_initialized.sh
 
 echo "-----------------------------------"
 echo "MongoDB authentication setup completed."
