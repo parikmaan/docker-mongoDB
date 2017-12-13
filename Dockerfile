@@ -26,4 +26,4 @@ RUN chmod +x /set_mongodb_password.sh
 # Expose MongoDB port
 EXPOSE 27017
 
-CMD ["/scripts/entrypoint.sh"]
+CMD ["/entrypoint.sh"]
