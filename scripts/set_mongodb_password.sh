@@ -19,7 +19,7 @@ done
 
 # Admin user
 echo "-----------------------------------"
-echo "Create admin user."
+echo "Create admin user. $MONGODB_ADMIN_USER:$MONGODB_ADMIN_PASS"
 echo "-----------------------------------"
 mongo admin --eval "db.createUser({user: '$MONGODB_ADMIN_USER', pwd: '$MONGODB_ADMIN_PASS', roles:[{role:'root',db:'admin'}]});"
 
