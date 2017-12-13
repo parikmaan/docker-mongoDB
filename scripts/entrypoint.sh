@@ -6,7 +6,7 @@ cmd="$mongodb_cmd"
 
 $cmd &
 
-if [ ! -f /mongodb/auth_initialized ]; then
+if [ ! -f /mongodb/auth_initialized.sh ]; then
     /set_mongodb_password.sh
 fi
 
