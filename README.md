@@ -5,10 +5,10 @@ MongoDB using docker.
 1. Clone the repository
 2. Build:
 
-    sh build.sh
+    docker image build -t TAG .
 3. Startup:
 
-    sh start.sh
+    sh scripts/start.sh
 4. Create mongodb user:
     
     docker exec -it docker-mongodb mongo admin
