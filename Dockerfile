@@ -13,13 +13,17 @@ RUN set -x && \
 
 # Create mongo working directory
 RUN mkdir -p /mongodb/db /mongodb/logs
-VOLUME /mongodb
 WORKDIR /mongodb
+VOLUME docker-mongodb:/mongodb
 
 # Copy files
-COPY . .
+COPY conf conf
+COPY scripts scripts
+
+RUN chmod +x scripts/entrypoint.sh
+RUN chmod +x scripts/set_mongodb_password.sh
 
 # Expose MongoDB port
 EXPOSE 27017
 
-CMD ["mongod", "--config", "/mongodb/conf/mongodb.conf"]
+CMD ["scripts/entrypoint.sh"]
