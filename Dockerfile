@@ -18,12 +18,12 @@ VOLUME docker-mongodb:/mongodb
 
 # Copy files
 COPY conf conf
-COPY scripts scripts
+COPY scripts /
 
-RUN chmod +x scripts/entrypoint.sh
-RUN chmod +x scripts/set_mongodb_password.sh
+RUN chmod +x /entrypoint.sh
+RUN chmod +x /set_mongodb_password.sh
 
 # Expose MongoDB port
 EXPOSE 27017
 
-CMD ["scripts/entrypoint.sh"]
+CMD ["/scripts/entrypoint.sh"]
