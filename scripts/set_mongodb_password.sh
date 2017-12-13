@@ -1,11 +1,11 @@
 #!/bin/bash
 
-ADMIN_USER=${MONGODB_ADMIN_USER:-"admin"}
-ADMIN_PASS=${MONGODB_ADMIN_PASS:-"password"}
+ADMIN_USER=${ADMIN_USER:-"admin"}
+ADMIN_PASS=${ADMIN_PASS:-"password"}
 
-APPLICATION_DATABASE=${MONGODB_APPLICATION_DATABASE:-"appdb"}
-APPLICATION_USER=${MONGODB_APPLICATION_USER:-"user"}
-APPLICATION_PASS=${MONGODB_APPLICATION_PASS:-"password"}
+APPLICATION_DATABASE=${APPLICATION_DATABASE:-"appdb"}
+APPLICATION_USER=${APPLICATION_USER:-"user"}
+APPLICATION_PASS=${APPLICATION_PASS:-"password"}
 
 RET=1
 while [[ RET -ne 0 ]]; do
@@ -19,9 +19,9 @@ done
 
 # Admin user
 echo "-----------------------------------"
-echo "Create admin user. $MONGODB_ADMIN_USER:$MONGODB_ADMIN_PASS"
+echo "Create admin user."
 echo "-----------------------------------"
-mongo admin --eval "db.createUser({user: '$MONGODB_ADMIN_USER', pwd: '$MONGODB_ADMIN_PASS', roles:[{role:'root',db:'admin'}]});"
+mongo admin --eval "db.createUser({user: '$ADMIN_USER', pwd: '$ADMIN_PASS', roles:[{role:'root',db:'admin'}]});"
 
 sleep 5
 
@@ -29,9 +29,9 @@ sleep 5
 echo "-----------------------------------"
 echo "Create application user."
 echo "-----------------------------------"
-mongo admin -u $MONGODB_ADMIN_USER -p $MONGODB_ADMIN_PASS << EOF
-use $MONGODB_APPLICATION_DATABASE
-db.createUser({user: '$MONGODB_APPLICATION_USER', pwd: '$MONGODB_APPLICATION_PASS', roles:[{role:'dbOwner', db:'$MONGODB_APPLICATION_DATABASE'}]})
+mongo admin -u $ADMIN_USER -p $ADMIN_PASS << EOF
+use $APPLICATION_DATABASE
+db.createUser({user: '$APPLICATION_USER', pwd: '$APPLICATION_PASS', roles:[{role:'dbOwner', db:'$APPLICATION_DATABASE'}]})
 EOF
 
 sleep 5
