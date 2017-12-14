@@ -14,6 +14,7 @@ RUN set -x && \
 # Create mongo working directory
 RUN mkdir -p /mongodb/db /mongodb/logs
 WORKDIR /mongodb
+VOLUME /mongodb
 
 # Copy files
 COPY conf conf
