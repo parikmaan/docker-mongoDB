@@ -1,4 +1,6 @@
-# MongoDB using docker.
+# MongoDB using docker
+
+Plain mongodb installation using docker.
 
 # Installation
 
