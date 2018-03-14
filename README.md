@@ -1,5 +1,4 @@
-# docker-mongoDB
-MongoDB using docker.
+# MongoDB using docker.
 
 # Installation
 1. Clone the repository
