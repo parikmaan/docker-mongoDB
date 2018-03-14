@@ -7,11 +7,11 @@
 2. Build:
 
     docker image build -t TAG .
-
+    
 3. Startup:
 
     sh scripts/start.sh
-
+    
 4. Create mongodb user:
     
     docker exec -it docker-mongodb mongo admin
